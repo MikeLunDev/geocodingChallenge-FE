@@ -125,7 +125,7 @@ export default class App extends React.Component {
         >
           <div className="row no-gutters w-100 h-100 mx-0 my-0 px-0">
             {/*  //<div className="row w-100" style={{ height: `60%` }}> */}
-            <div className="col-6">
+            <div className="col-xs-12 col-sm-6">
               <MapWrapped
                 //coordinates are passed here
                 customMarkers={this.state.coordinates}
@@ -144,7 +144,7 @@ export default class App extends React.Component {
               />
             </div>
             {/* right col */}
-            <div className="col-6" style={{ height: "100vh" }}>
+            <div className="col-xs-12 col-sm-6" style={{ height: "100vh" }}>
               <div
                 /* style={{ padding: "2.5rem" }} */ className="container"
                 style={{ height: "10%" }}
