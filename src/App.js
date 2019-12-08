@@ -112,6 +112,10 @@ export default class App extends React.Component {
     }
   };
 
+  isWindowWidthXs = ()=>{
+   return $(window).width() < 576 ? true : false
+  }
+
   render() {
     return (
       <>
@@ -145,7 +149,7 @@ export default class App extends React.Component {
             {/* right col */}
             <div
               className="col-xs-12 col-sm-6"
-              style={{ height: $(window).width() < 576 ? "50vh" : "100vh" }}
+              style={{ height: this.isWindowWidthXs() ? "50vh" : "100vh" }}
             >
               <div className="container pt-1" style={{ height: "10%" }}>
                 <Places passCoordinates={this.handleCoordinates} />
