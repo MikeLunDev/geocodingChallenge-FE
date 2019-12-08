@@ -2,7 +2,7 @@ import React from "react";
 import Places from "./components/Places";
 import EditPlace from "./components/EditPlace";
 import MapWrapped from "./components/Map";
-import {BASE_URL} from "./utils/constants"
+import { BASE_URL } from "./utils/constants";
 
 //create ad HOC component wrapping the map with the API
 export default class App extends React.Component {
@@ -136,7 +136,6 @@ export default class App extends React.Component {
                     style={{
                       height: `100%`,
                       width: `100%`
-                      // alignSelf: "left"
                     }}
                   />
                 }
@@ -144,27 +143,16 @@ export default class App extends React.Component {
               />
             </div>
             {/* right col */}
-            <div className="col-xs-12 col-sm-6" style={{ height: "100vh" }}>
-              <div
-                /* style={{ padding: "2.5rem" }} */ className="container"
-                style={{ height: "10%" }}
-              >
+            <div
+              className="col-xs-12 col-sm-6"
+              style={{ height: $(window).width() < 576 ? "50vh" : "100vh" }}
+            >
+              <div className="container pt-1" style={{ height: "10%" }}>
                 <Places passCoordinates={this.handleCoordinates} />
               </div>
-              {/* </div> */}
-              {/*  </div> */}
-
               <div
-                /*   style={{
-                height: `40%`,
-                width: "100%",
-                padding: "3rem",
-                overflowY: "scroll"
-              }} */
                 className="container pt-3"
                 style={{
-                  // height: `75%`,
-
                   overflowY: "scroll",
                   height: "90%",
                   width: "100%"
