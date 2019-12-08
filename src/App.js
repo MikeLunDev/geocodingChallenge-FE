@@ -20,7 +20,7 @@ export default class App extends React.Component {
   }
 
   handleCoordinates = async data => {
-    var resp = await fetch("BASE_URL", {
+    var resp = await fetch(`${BASE_URL}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
