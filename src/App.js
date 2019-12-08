@@ -2,6 +2,7 @@ import React from "react";
 import Places from "./components/Places";
 import EditPlace from "./components/EditPlace";
 import MapWrapped from "./components/Map";
+import {BASE_URL} from "./utils/constants"
 
 //create ad HOC component wrapping the map with the API
 export default class App extends React.Component {
@@ -19,7 +20,7 @@ export default class App extends React.Component {
   }
 
   handleCoordinates = async data => {
-    var resp = await fetch("http://localhost:3055/markers", {
+    var resp = await fetch("BASE_URL", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -32,7 +33,7 @@ export default class App extends React.Component {
 
   handleMarkerDelete = async markerId => {
     try {
-      var response = await fetch("http://localhost:3055/markers/" + markerId, {
+      var response = await fetch(`${BASE_URL}/${markerId}`, {
         headers: {
           "Content-Type": "application/json"
         },
@@ -67,7 +68,7 @@ export default class App extends React.Component {
   handleEditSave = async markerId => {
     const { lat, lng, address } = this.state.showEdit;
     try {
-      var resp = await fetch("http://localhost:3055/markers/" + markerId, {
+      var resp = await fetch(`${BASE_URL}/${markerId}`, {
         headers: {
           "Content-Type": "application/json"
         },
@@ -101,7 +102,7 @@ export default class App extends React.Component {
 
   componentDidMount = async () => {
     try {
-      var resp = await fetch("http://localhost:3055/markers");
+      var resp = await fetch(`${BASE_URL}`);
       if (resp.ok) {
         var json = await resp.json();
         this.setState({ coordinates: json });
