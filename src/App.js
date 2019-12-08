@@ -3,6 +3,7 @@ import Places from "./components/Places";
 import EditPlace from "./components/EditPlace";
 import MapWrapped from "./components/Map";
 import { BASE_URL } from "./utils/constants";
+import { isWindowWidthXs } from "./utils/utilsFunction";
 
 //create ad HOC component wrapping the map with the API
 export default class App extends React.Component {
@@ -112,10 +113,6 @@ export default class App extends React.Component {
     }
   };
 
-  isWindowWidthXs = ()=>{
-   return $(window).width() < 576 ? true : false
-  }
-
   render() {
     return (
       <>
@@ -149,7 +146,7 @@ export default class App extends React.Component {
             {/* right col */}
             <div
               className="col-xs-12 col-sm-6"
-              style={{ height: this.isWindowWidthXs() ? "50vh" : "100vh" }}
+              style={{ height: isWindowWidthXs() ? "50vh" : "100vh" }}
             >
               <div className="container pt-1" style={{ height: "10%" }}>
                 <Places passCoordinates={this.handleCoordinates} />
