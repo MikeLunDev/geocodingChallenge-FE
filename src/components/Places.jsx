@@ -16,7 +16,6 @@ export default function Places(props) {
   }, [coordinates]);
 
   const handleSelect = async value => {
-    console.log("value", value);
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
     setAddress(value);
