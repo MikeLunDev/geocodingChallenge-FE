@@ -9,17 +9,18 @@ export default class EditPlace extends Component {
       address: ""
     };
   }
-
+  
   componentDidMount = () => {
     this.setState({
       address: this.props.address
     });
   };
-
+  
   handleChange = async el => {
     this.setState({ address: el.target.value });
   };
 
+  //this function create new coordinates and pass them to the App.js component
   handleSearch = async () => {
     const results = await geocodeByAddress(this.state.address);
     const latLng = await getLatLng(results[0]);

@@ -4,17 +4,22 @@ import PlacesAutocomplete, {
   getLatLng
 } from "react-places-autocomplete";
 
-export default function Places(props) {
+//FUNCTIONAL COMPONENT FOR THE AUTOCOMPLETE 
+const Places = (props)=> {
   const [address, setAddress] = React.useState("");
   const [coordinates, setCoordinates] = React.useState({
     lat: null,
     lng: null
   });
+  //useEffect that looks for coordinates change
+  //and if they are not null, create a Marker and pass them to the App.js in the handleCoordinates()
   React.useEffect(() => {
     if (coordinates.lat != null && coordinates.lng != null)
       props.passCoordinates({ ...coordinates, address });
   }, [coordinates]);
-
+  
+  //when the user choose a suggestion create the coordinates from that place
+  //leveraging on getLatLng and geocodeByAddress, that are built in function to get coordinates 
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
@@ -78,3 +83,5 @@ export default function Places(props) {
     </>
   );
 }
+
+export default Places

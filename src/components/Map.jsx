@@ -6,6 +6,7 @@ import {
   withScriptjs
 } from "react-google-maps";
 
+//FUNCTIONAL COMPONENT THAT RENDERS THE MAP
 const Map = props => {
   return (
     <GoogleMap
@@ -27,6 +28,7 @@ const Map = props => {
   );
 };
 
+//HOC COMPONENT CREATED OUT OF THE MAP 
 const MapWrapped = withScriptjs(withGoogleMap(Map));
 
 export default MapWrapped;
