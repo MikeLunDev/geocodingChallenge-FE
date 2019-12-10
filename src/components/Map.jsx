@@ -2,8 +2,7 @@ import React from "react";
 import {
   GoogleMap,
   Marker,
-  withGoogleMap,
-  withScriptjs
+  withGoogleMap
 } from "react-google-maps";
 
 //FUNCTIONAL COMPONENT THAT RENDERS THE MAP
@@ -29,6 +28,6 @@ const Map = props => {
 };
 
 //HOC COMPONENT CREATED OUT OF THE MAP 
-const MapWrapped = withScriptjs(withGoogleMap(Map));
+const MapWrapped = withGoogleMap(Map);
 
 export default MapWrapped;

@@ -134,7 +134,7 @@ export default class App extends React.Component {
               <MapWrapped
                 //coordinates are passed here
                 customMarkers={this.state.coordinates}
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing&key=${process.env.REACT_APP_GOOGLE_KEY}`}
                 loadingElement={<div style={{ height: `50%`, width: `80%` }} />}
                 containerElement={
                   <div
