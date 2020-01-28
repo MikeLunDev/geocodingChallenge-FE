@@ -21,12 +21,12 @@ export default class App extends React.Component {
 
   //this function post new coordinates on the db and add them to the local state
   handleCoordinates = async data => {
-    var resp = await fetch(`${BASE_URL}`, {
+    const resp = await fetch(`${BASE_URL}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     });
-    var { newMarker } = await resp.json();
+    const { newMarker } = await resp.json();
     this.setState({
       coordinates: [...this.state.coordinates, newMarker]
     });
@@ -35,7 +35,7 @@ export default class App extends React.Component {
   //this function delete coordinates based on ID both on the db and on the local state
   handleMarkerDelete = async markerId => {
     try {
-      var response = await fetch(`${BASE_URL}/${markerId}`, {
+      const response = await fetch(`${BASE_URL}/${markerId}`, {
         headers: {
           "Content-Type": "application/json"
         },
@@ -72,7 +72,7 @@ export default class App extends React.Component {
   handleEditSave = async markerId => {
     const { lat, lng, address } = this.state.showEdit;
     try {
-      var resp = await fetch(`${BASE_URL}/${markerId}`, {
+      const resp = await fetch(`${BASE_URL}/${markerId}`, {
         headers: {
           "Content-Type": "application/json"
         },
@@ -107,9 +107,9 @@ export default class App extends React.Component {
   //on the component did mount fetch the db searching for saved markers on the db, and put them on the local state
   componentDidMount = async () => {
     try {
-      var resp = await fetch(`${BASE_URL}`);
+      const resp = await fetch(`${BASE_URL}`);
       if (resp.ok) {
-        var json = await resp.json();
+        const json = await resp.json();
         this.setState({ coordinates: json });
       }
     } catch (err) {
