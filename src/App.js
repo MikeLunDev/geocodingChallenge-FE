@@ -15,7 +15,7 @@ export default class App extends React.Component {
         lat: "",
         lng: "",
         address: ""
-      }3
+      }
     };
   }
 
